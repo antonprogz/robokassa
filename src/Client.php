@@ -49,9 +49,16 @@ class Client
      *
      * @param Auth $auth
      */
-    public function __construct(Auth $auth)
+    public function __construct(
+        Auth $auth,
+        string $formBaseUrl = 'https://auth.robokassa.ru/Merchant/PaymentForm/Form',
+        string $paymentBaseUrl = 'https://auth.robokassa.ru/Merchant/Index.aspx',
+        string $serviceBaseUrl = 'https://auth.robokassa.ru/Merchant/WebService/Service.asmx/')
     {
         $this->auth = $auth;
+        $this->formBaseUrl = $formBaseUrl;
+        $this->paymentBaseUrl = $paymentBaseUrl;
+        $this->serviceBaseUrl = $serviceBaseUrl;
     }
 
     /**

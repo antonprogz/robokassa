@@ -23,7 +23,11 @@ class TestCase extends \PHPUnit_Framework_TestCase
     }
     protected function createPayment()
     {
-        return new Payment($this->createAuth());
+        $auth = $this->createAuth();
+
+        $client = new Client($auth);
+
+        return new Payment($auth, $client);
     }
 
     /**

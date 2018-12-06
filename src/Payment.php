@@ -188,12 +188,8 @@ class Payment
      * @param Auth   $auth   Authenticate credentials.
      * @param Client $client Robokassa API client.
      */
-    public function __construct(Auth $auth, Client $client = null)
+    public function __construct(Auth $auth, Client $client)
     {
-        if (null === $client) {
-            $client = new Client($auth);
-        }
-
         $this->auth = $auth;
         $this->client = $client;
         $this->culture = $client->getCulture();
